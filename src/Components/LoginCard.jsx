@@ -2,51 +2,38 @@ import PropTypes from 'prop-types';
 
 const LoginCard = ({ title, link }) => {
     return (
-        <a href={link} aria-label={`Login as ${title}`} style={{ textDecoration: 'none' }}>
-            <div className='gap-3 primary p-4' style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div className='object-fit-fill'>
-                    <img src="/favicon.png" width={60} alt={`${title} icon`} />
+        <a href={link} aria-label={`Login as ${title}`} className="no-underline">
+            <div className="gap-3 bg-blue-500 p-4 flex flex-col items-center rounded-lg shadow-lg hover:bg-blue-600 transition duration-300">
+                <div className="w-16 h-16">
+                    <img src="/favicon.png" alt={`${title} icon`} className="w-full h-full object-contain" />
                 </div>
-                <h4>{title}</h4>
+                <h4 className="text-lg font-semibold text-white">{title}</h4>
             </div>
         </a>
     );
-}
+};
 
 LoginCard.propTypes = {
     title: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
-}
+};
 
 const LoginSection = () => {
-    const containerStyle = {
-        margin: "2% 10%",
-    }
-
     return (
-        <section style={containerStyle}>
-            <div className="row gap-5 justify-content-center">
-                <div className="col-md-3 p-4">
-                    <LoginCard
-                        title="Department"
-                        link="http://localhost:5173/d/login"
-                    />
+        <section className="my-8 mx-auto max-w-screen-xl">
+            <div className="flex gap-5 justify-center flex-wrap">
+                <div className="p-4">
+                    <LoginCard title="Department" link="https://urban-connect-employee.onrender.com/" />
                 </div>
-                <div className="col-md-3 p-4">
-                    <LoginCard
-                        title="Employee"
-                        link="http://localhost:5174/e/login"
-                    />
+                <div className="p-4">
+                    <LoginCard title="Employee" link="https://d.onrender.com/" />
                 </div>
-                <div className="col-md-3 p-4">
-                    <LoginCard
-                        title="Agency"
-                        link="http://localhost:5175/a/login"
-                    />
+                <div className="p-4">
+                    <LoginCard title="Agency" link="https://a.onrender.com/" />
                 </div>
             </div>
         </section>
     );
-}
+};
 
 export default LoginSection;

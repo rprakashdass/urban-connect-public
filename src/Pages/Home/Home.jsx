@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DynamicSolution from "./DyamicSolution"; // Your solution explanation component
 import ProjectsByLocation from "./OngoingProjects/ProjectsByLocation"; // Component that handles location-based projects
 import LoginSection from "../../Components/LoginCard";
+import Banner from '../Header/Banner';
 
 const Home = () => {
   const [theme, setTheme] = useState("light");
@@ -23,7 +24,7 @@ const Home = () => {
   };
 
   return (
-    <div className={`${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
+    <div className={`${theme === "dark" ? "bg-gray-900 text-black" : "bg-white text-black"}`}>
       <header className="flex justify-between p-4">
         <div>
           <h1 className="text-2xl">Urban Connect</h1>
@@ -42,6 +43,8 @@ const Home = () => {
       </header>
 
       <main className={`p-4`} style={{ fontSize: `${fontSize}px` }}>
+
+        <Banner/>
 
         <LoginSection/>
 
